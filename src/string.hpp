@@ -3,6 +3,8 @@
 
 #include <iosfwd>
 
+const int MAXLEN = 1024;
+
 class String {
 public:
     // constructs this string from a C string, defaults to empty string
