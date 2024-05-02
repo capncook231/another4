@@ -156,7 +156,7 @@ void String::print(std::ostream &out) const{
 }
 
 void String::read(std::istream &in){
-	String temp = String(MAXLEN);
+	String temp = String(1024);
 	in >> temp;
 }
 
