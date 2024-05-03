@@ -132,10 +132,11 @@ void String::print(std::ostream &out) const{
 }
 
 void String::read(std::istream &in){
-	buf = new char[1024];
+	char temp[1024];
 	int count = 0;
-	for(; !in.eof(); ++count){in >> buf[count];}
-	buf[count] = '\0';
+	for(; !in.eof(); ++count){in >> temp[count];}
+	temp[count] = '\0';
+	buf = temp;
 }
 
 String::~String(){
