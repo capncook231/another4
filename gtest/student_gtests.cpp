@@ -131,12 +131,17 @@ TEST(StringFunction, strstr) {
 	char result3[20];
 	char result4[20];
 	char result5[20];
+	char result6[20];
 	String::strcpy(result1, "candiedfruits");
 	String::strcpy(result2, "and");
 	String::strcpy(result3, "it");
 	String::strcpy(result4, "randy");
 	String::strcpy(result5, "an");
+	String::strcpy(result6, "");
 	EXPECT_STREQ(String::strstr(result1, result2), "andiedfruits");
 	EXPECT_STREQ(String::strstr(result4, result5), "andy");
 	EXPECT_STREQ(String::strstr(result1, result3), "its");
+	EXPECT_FALSE(String::strstr(result2, result6));
+	EXPECT_FALSE(String::strstr(result6, result2));
+	
 }
