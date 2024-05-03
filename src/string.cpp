@@ -127,34 +127,8 @@ String& String::operator+=(String s){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void String::print(std::ostream &out) const{
 	String temp = String(buf);
-
 	out<<temp;
 }
 
@@ -188,8 +162,8 @@ char* String::strcpy(char *dest, const char *src){
 
 char* String::strdup(const char *src){
 	int src_len = strlen(src);
-	char* dup = new char[src_len + 1];
-	return strcpy(dup, src);
+	String temp = String(src_len + 1);
+	return strcpy(temp.buf, src);
 }
 
 char* String::strncpy(char *dest, const char *src, int n){
