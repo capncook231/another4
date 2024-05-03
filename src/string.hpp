@@ -18,7 +18,7 @@ public:
     void swap(String &s);
 
     // assignment operator from one string, s, to this string
-    String &operator=(String s);
+    String &operator=(String &s);
 
     // assign to this string by moving from string s
     String &operator=(String &&s);
@@ -39,21 +39,21 @@ public:
     int indexOf(char c) const;
 
     // returns index into this string for first occurrence of s
-    int indexOf(String s) const;
+    int indexOf(String &s) const;
 
     // relational operators for comparing this strings to another string
-    bool operator==(String s) const;
-    bool operator!=(String s) const;
-    bool operator>(String s) const;
-    bool operator<(String s) const;
-    bool operator<=(String s) const;
-    bool operator>=(String s) const;
+    bool operator==(String &s) const;
+    bool operator!=(String &s) const;
+    bool operator>(String &s) const;
+    bool operator<(String &s) const;
+    bool operator<=(String &s) const;
+    bool operator>=(String &s) const;
 
     // concatenate this and s to form a return string
-    String operator+(String s) const;
+    String operator+(String &s) const;
 
     // concatenate s onto the end of this string
-    String &operator+=(String s);
+    String &operator+=(String &s);
 
     // print this string, hint: use operator << to send buf to out
     void print(std::ostream &out) const;
@@ -95,6 +95,6 @@ private:
     explicit String(int length);
 };
 
-std::ostream &operator<<(std::ostream &out, String s);
+std::ostream &operator<<(std::ostream &out, String &s);
 std::istream &operator>>(std::istream &in, String &s);
 #endif
