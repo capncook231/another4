@@ -252,7 +252,7 @@ std::ostream &operator<<(std::ostream &out, String &s){
 	return out;
 }
 
-std::istream &operator>>(std::istream &in, String &s){
+std::istream &operator>>(std::istream &in, String &&s){
 	s.read(in);
 	return in;
 }
