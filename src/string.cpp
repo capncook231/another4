@@ -11,8 +11,6 @@ String::String(const String &s){
 	buf = strdup(s.buf);
 }
 
-
-
 String::String(String &&s)
 	: buf(s.buf) {s.buf = nullptr;}
 
@@ -79,45 +77,45 @@ int String::indexOf(char c) const{
 
 }
 
-int String::indexOf(String& s) const{
+int String::indexOf(const String& s) const{
 	const char* temp = strstr(buf, s.buf);
 	if (temp != nullptr) return temp - buf; else throw("Out of bounds!");
 
 }
 
-bool String::operator==(String& s) const{
+bool String::operator==(const String& s) const{
 	if(strcmp(buf, s.buf) == 0) return true; else return false;	
 }
 
-bool String::operator!=(String& s) const{
+bool String::operator!=(const String& s) const{
 	if(strcmp(buf, s.buf) != 0) return true; else return false;
 }
 
-bool String::operator>(String& s) const{
+bool String::operator>(const String& s) const{
 	if(strcmp(buf, s.buf) > 0) return true; else return false;
 }
 
-bool String::operator<(String& s) const{
+bool String::operator<(const String& s) const{
 	if(strcmp(buf, s.buf) < 0) return true; else return false;
 }
 
-bool String::operator<=(String& s) const{
+bool String::operator<=(const String& s) const{
 	if(strcmp(buf, s.buf) <= 0) return true; else return false;
 }
 
-bool String::operator>=(String& s) const{
+bool String::operator>=(const String& s) const{
 	if(strcmp(buf, s.buf) >= 0) return true; else return false;
 }
 
-String String::operator+(String& s) const{
-	char * sup = new char[strlen(buf) + strlen(s.buf) + 1];
-	strcpy(sup, buf);
-	strcat(sup, s.buf);
-	return String(sup);
+String String::operator+(const String& s) const{
+	String sup = String(strlen(buf) + strlen(s.buf) + 1);
+	buf = strcpy(sup.buf, buf);
+	buf = strcat(sup, s.buf);
+	return sup;
 
 }
 
-String& String::operator+=(String& s){
+String& String::operator+=(const String& s){
 	char *sup = new char[strlen(buf) + strlen(s.buf) + 1];
 	strcpy(sup, buf);
 	buf = strcat(sup, s.buf);
