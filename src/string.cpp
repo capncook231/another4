@@ -239,7 +239,7 @@ const char* String::strstr(const char *haystack, const char *needle){
 	int hay_len{strlen(haystack)};
 	int ned_len{strlen(needle)};
 	int counter{0};
-	for (; counter < hay_len - ned_len; ++counter){
+	for (; counter < hay_len - ned_len + 1; ++counter){
 		if (strcmp(&haystack[counter], needle) == 0){
 			return &haystack[counter];
 		}
