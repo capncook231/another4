@@ -29,7 +29,7 @@ TEST(StringFunction, strdup) {
 	EXPECT_EQ(String::strlen(gogo), 5);
 	EXPECT_STREQ(gogo, "hello");
 	EXPECT_STREQ(gogo, result);
-	EXPECT_FALSE(gogo = result);
+	EXPECT_FALSE(&gogo = &result);
 	
 }
 
