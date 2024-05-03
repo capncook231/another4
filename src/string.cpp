@@ -25,7 +25,7 @@ void String::swap(String &s){
 }
 
 //COPY ASSIGNMENT
-String& String::operator=(const String s){
+String& String::operator=(String s){
 	int s_len = strlen(s);
 	int counter = 0;
 	for(; s[counter] != '\0'; ++counter){buf[counter] = s[counter];}
