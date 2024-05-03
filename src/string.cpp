@@ -22,6 +22,7 @@ void String::swap(String &s){
 	temp.buf = s.buf;
 	s.buf = buf;
 	buf = temp.buf;
+	delete[] temp.buf;
 }
 
 //COPY ASSIGNMENT
@@ -122,6 +123,8 @@ String& String::operator+=(const String& s){
 	String sup = String(strlen(buf) + strlen(s.buf) + 1);
 	sup.buf = strcpy(sup.buf, buf);
 	sup.buf = strcat(sup.buf, s.buf);
+	buf = strcpy(buf, sup.buf)
+	delete[] sup.buf;
 	return *this;
 }
 
@@ -212,17 +215,15 @@ char* String::strncat(char *dest, const char *src, int n){
 int String::strcmp(const char *left, const char *right){
 	int counter = 0;
 	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter]; ++counter){}
-	if (left[counter] == '\0' && right[counter] == '\0') return 0;
-	if (left[counter] == '\0') return -1 * right[counter];
-	if (right[counter] == '\0') return left[counter];
-	
 	return left[counter] - right[counter];
 }
 
 int String::strncmp(const char *left, const char *right, int n){
 	int counter = 0;
 	if (n == 0) return 0;
-	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter] && counter < n; ++counter){}
+	for (; left[counter] != '\0' && right[counter] != '\0' && counter < n; ++counter){
+		if(left[counter] != right[counter]) return left[counter] - right[counter];
+	}
 	if (counter == n) return 0; else return left[counter] - right[counter];
 }
 
