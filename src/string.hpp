@@ -18,7 +18,7 @@ public:
     void swap(String &s);
 
     // assignment operator from one string, s, to this string
-    //String &operator=(String s);
+    String &operator=(String s);
 
     // assign to this string by moving from string s
     String &operator=(String &&s);
