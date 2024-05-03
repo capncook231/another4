@@ -132,7 +132,8 @@ void String::print(std::ostream &out) const{
 }
 
 void String::read(std::istream &in){
-	buf = new char [1024];
+	char temp[1024];
+	buf = temp;
 	in >> buf;
 }
 
