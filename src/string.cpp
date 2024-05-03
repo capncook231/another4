@@ -241,7 +241,7 @@ const char* String::strchr(const char *str, char c){
 const char* String::strstr(const char *haystack, const char *needle){
 	int ned_size = strlen(needle);
 	int hay_size = strlen(haystack);
-	if (ned_size > hay_size) return nullptr;
+	if (ned_size > hay_size || ned_size == 0) return nullptr;
 	for (int counter = 0; haystack[counter] != '\0' && counter < hay_size - ned_size + 1; ++counter){
 		if (strcmp(&haystack[counter], needle) == 0) return &haystack[counter];
 	} return nullptr;
