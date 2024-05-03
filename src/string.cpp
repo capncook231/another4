@@ -28,7 +28,7 @@ void String::swap(String &s){
 
 //COPY ASSIGNMENT
 String& String::operator=(String s){
-	swap(s.buf);
+	swap(s);
 	delete[] s.buf;
 	return *this;
 }
