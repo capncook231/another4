@@ -26,8 +26,10 @@ void String::swap(String &s){
 
 //COPY ASSIGNMENT
 String& String::operator=(const String s){
-	swap(s);
-	delete[] s.buf;
+	int s_len = strlen(s);
+	int counter = 0;
+	for(; s[counter] != '\0'; ++counter){buf[counter] = s[counter];}
+	buf[counter] = '\0';
 	return *this;
 }
 
