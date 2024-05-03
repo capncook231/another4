@@ -40,6 +40,7 @@ String& String::operator=(const String &s){
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
 	swap(s);
+	delete[] s;
 	return *this;
 }
 
