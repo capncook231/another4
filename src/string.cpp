@@ -11,8 +11,10 @@ String::String(const String &s){
 	buf = strdup(s.buf);
 }
 
-String::String(String &&s)
-	: buf(s.buf) {s.buf = nullptr;}
+String::String(String &&s) {
+	buf = s.buf;
+	s.buf = nullptr;
+}
 
 void String::swap(String &s){
 	std::swap(buf, s.buf);
