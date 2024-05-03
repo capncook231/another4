@@ -168,22 +168,6 @@ String::~String(){
 }
 
 
-const char* String::get_buf() {
-	return buf;
-}
-
-void String::set_buf(const char *src){
-	const char * temp_src = src;
-	char * temp_buf = buf;
-
-	while (*temp_src != '\0'){
-		*temp_buf = *temp_src;
-		++temp_buf; ++temp_src;
-	}
-	*temp_buf = '\0';
-}
-
-
 int String::strlen(const char *s){
 	int counter{0};
 	for(; s[counter] != '\0'; ++counter){}
