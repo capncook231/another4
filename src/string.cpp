@@ -117,7 +117,7 @@ String& String::operator+=(const String& s){
 	sup.buf = strcpy(sup.buf, buf);
 	sup.buf = strcat(sup.buf, s.buf);
 	buf = strcpy(buf, sup.buf);
-	delete[] sup.buf;
+	//delete[] sup.buf;
 	return *this;
 }
 
