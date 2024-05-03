@@ -9,7 +9,7 @@ public:
     explicit String(const char *s = "");
 
     // construct this string as a copy of string s
-    explicit String(const String &s);
+    String(const String &s);
 
     // construct this string by moving from string s
     explicit String(String &&s);
