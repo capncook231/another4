@@ -212,8 +212,10 @@ int String::strcmp(const char *left, const char *right){
 }
 
 int String::strncmp(const char *left, const char *right, int n){
-	for (int counter=0; *left != '\0' && *right != '\0' && *left == *right && counter != n; ++counter, ++left, ++right){}
-	return *left - *right;
+	int counter = 0;
+	if (n == 0) return 0;
+	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter] && counter < n; ++counter){}
+	return left[counter-1] - right[counter-1];
 }
 
 
