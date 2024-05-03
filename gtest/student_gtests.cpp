@@ -98,6 +98,7 @@ TEST(StringFunction, strncmp) {
 	char result6[20];
 	char result7[20];
 	char result8[20];
+	char result9[20];
 	String::strcpy(result1, "hello");
 	String::strcpy(result2, result1);
 	String::strcpy(result3, "frankenstein");
@@ -105,14 +106,16 @@ TEST(StringFunction, strncmp) {
 	String::strcpy(result5, "tacobell");
 	String::strcpy(result7, "hells");
 	String::strcpy(result8, "hell");
+	String::strcpy(result9, "igloo");
 	EXPECT_EQ(String::strlen(result1), 5);
 	EXPECT_EQ(String::strncmp(result4, result5, 3), 0);
 	EXPECT_EQ(String::strncmp(result4, result5, 10), 0);
 	EXPECT_EQ(String::strncmp(result2, result1, 1), 0);
 	EXPECT_EQ(String::strncmp(result4, result2, 3), 12);
 	EXPECT_EQ(String::strncmp(result1, result8, 4), 0);
-	EXPECT_TRUE(String::strncmp(result1, result7, 4), 0);
-	EXPECT_FALSE(String::strncmp(result7, result3, 0), 1);
+	EXPECT_EQ(String::strncmp(result1, result7, 4), 0);
+	EXPECT_EQ(String::strncmp(result7, result3, 0), 0);
+	EXPECT_EQ(String::strncmp(result9, result1, 1), 1);
 	
 }
 
