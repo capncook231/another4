@@ -23,13 +23,13 @@ TEST(StringFunction, strcpy) {
 
 TEST(StringFunction, strdup) {
 	char result[20];
-	char gogo[20];
+	char* gogo = new char[20];
 	String::strcpy(result, "hello");
 	gogo = String::strdup(result);
 	EXPECT_EQ(String::strlen(gogo), 5);
 	EXPECT_STREQ(gogo, "hello");
 	EXPECT_STREQ(gogo, result);
-	EXPECT_FALSE(&gogo = &result);
+	EXPECT_FALSE(gogo = result);
 	
 }
 
