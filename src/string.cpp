@@ -23,7 +23,7 @@ void String::swap(String &s){
 	s.buf = buf;
 	buf = temp.buf;
 }
-
+/*
 //COPY ASSIGNMENT
 String& String::operator=(String s){
 	int s_len = strlen(s.buf);
@@ -32,7 +32,7 @@ String& String::operator=(String s){
 	buf[counter] = '\0';
 	return *this;
 }
-
+*/
 //MOVE ASSIGNMENT
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
