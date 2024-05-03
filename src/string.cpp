@@ -10,12 +10,12 @@ String::String(const char *s){
 String::String(const String &s){
 	buf = strdup(s.buf);
 }
-/*
+
 String::String(String &&s) {
 	buf = s.buf;
 	s.buf = nullptr;
 }
-*/
+
 void String::swap(String &s){
 	std::swap(buf, s.buf);
 }
@@ -29,7 +29,7 @@ String& String::operator=(String s){
 	buf = strcpy(buf, s.buf);
 	return *this;
 }
-/*
+
 //MOVE ASSIGNMENT
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
@@ -38,7 +38,7 @@ String& String::operator=(String &&s){
 	s.buf = nullptr;
 	return *this;
 }
-*/
+
 char& String::operator[](int index){
 	int lim = strlen(buf);
 	if (index < lim && index>= 0) {
@@ -132,11 +132,11 @@ void String::print(std::ostream &out) const{
 }
 
 void String::read(std::istream &in){
-	char temp[1024];
-	int count = 0;
-	for(; !in.eof(); ++count){in >> temp[count];}
-	temp[count] = '\0';
-	buf = temp;
+	const int maxSize = 1024;
+	char temp[maxSize];
+	in.getline(temp, maxSize);
+	delete[] buf;
+	buf = strdup(temp);
 }
 
 String::~String(){
