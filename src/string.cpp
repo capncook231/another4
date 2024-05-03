@@ -10,18 +10,18 @@ String::String(const char *s){
 String::String(const String &s){
 	buf = strdup(s.buf);
 }
-
+/*
 String::String(String &&s) {
 	buf = s.buf;
 	s.buf = nullptr;
 }
-
+*/
 void String::swap(String &s){
 	std::swap(buf, s.buf);
 }
 
 //COPY ASSIGNMENT
-String& String::operator=(const String &s){
+String& String::operator=(String s){
 	int s_len = strlen(s.buf);
 	if (&s == this) return *this;
 	delete[] buf;
@@ -29,7 +29,7 @@ String& String::operator=(const String &s){
 	buf = strcpy(buf, s.buf);
 	return *this;
 }
-
+/*
 //MOVE ASSIGNMENT
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
@@ -38,7 +38,7 @@ String& String::operator=(String &&s){
 	s.buf = nullptr;
 	return *this;
 }
-
+*/
 char& String::operator[](int index){
 	int lim = strlen(buf);
 	if (index < lim && index>= 0) {
@@ -78,37 +78,37 @@ int String::indexOf(char c) const{
 
 }
 
-int String::indexOf(const String& s) const{
+int String::indexOf(String s) const{
 	const char* temp = strstr(buf, s.buf);
 	if (temp != nullptr) return temp - buf; else throw("Out of bounds!");
 
 }
 
-bool String::operator==(const String& s) const{
+bool String::operator==(String s) const{
 	if(strcmp(buf, s.buf) == 0) return true; else return false;	
 }
 
-bool String::operator!=(const String& s) const{
+bool String::operator!=(String s) const{
 	if(strcmp(buf, s.buf) != 0) return true; else return false;
 }
 
-bool String::operator>(const String& s) const{
+bool String::operator>(String s) const{
 	if(strcmp(buf, s.buf) > 0) return true; else return false;
 }
 
-bool String::operator<(const String& s) const{
+bool String::operator<(String s) const{
 	if(strcmp(buf, s.buf) < 0) return true; else return false;
 }
 
-bool String::operator<=(const String& s) const{
+bool String::operator<=(String s) const{
 	if(strcmp(buf, s.buf) <= 0) return true; else return false;
 }
 
-bool String::operator>=(const String& s) const{
+bool String::operator>=(String s) const{
 	if(strcmp(buf, s.buf) >= 0) return true; else return false;
 }
 
-String String::operator+(const String& s) const{
+String String::operator+(String s) const{
 	String sup = String(strlen(buf) + strlen(s.buf) + 1);
 	sup.buf = strcpy(sup.buf, buf);
 	sup.buf = strcat(sup.buf, s.buf);
@@ -116,7 +116,7 @@ String String::operator+(const String& s) const{
 
 }
 
-String& String::operator+=(const String& s){
+String& String::operator+=(String s){
 	String sup = String(strlen(buf) + strlen(s.buf) + 1);
 	sup.buf = strcpy(sup.buf, buf);
 	sup.buf = strcat(sup.buf, s.buf);
