@@ -234,7 +234,7 @@ void String::reverse_cpy(char *dest, const char *src){
 const char* String::strchr(const char *str, char c){
 	int str_len{strlen(str)};
 	int counter{0};
-	for (; char[counter] != '\0' && str[counter] != c; ++counter) {}
+	for (; str[counter] != '\0' && str[counter] != c; ++counter) {}
 	if (str[counter] == c) return &str[counter]; else return nullptr;
 }
 
