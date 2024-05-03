@@ -212,6 +212,10 @@ char* String::strncat(char *dest, const char *src, int n){
 int String::strcmp(const char *left, const char *right){
 	int counter = 0;
 	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter]; ++counter){}
+	if (left[counter] == '\0' && right[counter] == '\0') return 0;
+	if (left[counter] == '\0') return -1 * right[counter];
+	if (right[counter] == '\0') return left[counter];
+	
 	return left[counter] - right[counter];
 }
 
