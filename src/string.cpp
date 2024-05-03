@@ -3,7 +3,7 @@
 #include <iostream>
 
 String::String(const char *s){
-	buf = strdup(s);
+	buf = s;
 }
 
 
