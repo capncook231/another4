@@ -41,9 +41,6 @@ public:
     // returns index into this string for first occurrence of s
     int indexOf(String s) const;
 
-	const char* get_buf();
-	void set_buf(const char *src);
-
     // relational operators for comparing this strings to another string
     bool operator==(String s) const;
     bool operator!=(String s) const;
