@@ -13,9 +13,8 @@ String::String(const String &s){
 
 
 
-String::String(String &&s){
+String::String(String &&s)
 	: buf(s.buf) {s.buf = nullptr;}
-}
 
 void String::swap(String &s){
 	int s_len{strlen(s.buf)};
