@@ -29,6 +29,7 @@ TEST(StringFunction, strdup) {
 	EXPECT_EQ(String::strlen(gogo), 5);
 	EXPECT_STREQ(gogo, "hello");
 	EXPECT_STREQ(gogo, result);
+	EXPECT_FALSE(&gogo = &result);
 	
 }
 
@@ -94,16 +95,25 @@ TEST(StringFunction, strncmp) {
 	char result3[20];
 	char result4[20];
 	char result5[23];
+	char result6[20];
+	char result7[20];
+	char result8[20];
 	String::strcpy(result1, "hello");
 	String::strcpy(result2, result1);
 	String::strcpy(result3, "frankenstein");
 	String::strcpy(result4, "tacobell");
 	String::strcpy(result5, "tacobell");
+	String::strcpy(result7, "hells");
+	String::strcpy(result8, "hell");
 	EXPECT_EQ(String::strlen(result1), 5);
 	EXPECT_EQ(String::strncmp(result4, result5, 3), 0);
 	EXPECT_EQ(String::strncmp(result4, result5, 10), 0);
 	EXPECT_EQ(String::strncmp(result2, result1, 1), 0);
 	EXPECT_EQ(String::strncmp(result4, result2, 3), 12);
+	EXPECT_EQ(String::strncmp(result1, result8, 4), 0);
+	EXPECT_TRUE(String::strncmp(result1, result7, 4), 0);
+	EXPECT_FALSE(String::strncmp(result7, result3, 0), 1);
+	
 }
 
 TEST(StringFunction, reverse_cpy) {
