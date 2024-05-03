@@ -109,8 +109,8 @@ bool String::operator>=(const String& s) const{
 
 String String::operator+(const String& s) const{
 	String sup = String(strlen(buf) + strlen(s.buf) + 1);
-	buf = strcpy(sup.buf, buf);
-	buf = strcat(sup, s.buf);
+	sup.buf = strcpy(sup.buf, buf);
+	sup.buf = strcat(sup, s.buf);
 	return sup;
 
 }
