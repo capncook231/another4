@@ -116,7 +116,7 @@ String String::operator+(const String& s) const{
 }
 
 String& String::operator+=(const String& s){
-	char *sup = new char[strlen(buf) + strlen(s.buf) + 1];
+	String temp = String(strlen(buf) + strlen(s.buf) + 1);
 	strcpy(sup, buf);
 	buf = strcat(sup, s.buf);
 	return *this;
@@ -244,7 +244,7 @@ const char* String::strstr(const char *haystack, const char *needle){
 }
 
 String::String(int length){
-	buf = {new char [length] {} };
+	buf = new char[length];
 }
 
 std::ostream &operator<<(std::ostream &out, String s){
