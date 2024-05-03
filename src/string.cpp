@@ -211,20 +211,18 @@ char* String::strncat(char *dest, const char *src, int n){
 
 int String::strcmp(const char *left, const char *right){
 	int counter = 0;
-	for (; *left != '\0' && *right != '\0' && *left == *right; ++left, ++right){++counter;}
-	left -= counter;
-	right -= counter;
-	return *left - *right;
+	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter]; ++counter){}
+	return left[counter] - right[counter];
 }
 
 int String::strncmp(const char *left, const char *right, int n){
 	int counter = 0;
 	if (n == 0) return 0;
 	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter] && counter < n; ++counter){}
-	return left[counter-1] - right[counter-1];
+	if (counter == n) return 0; else return left[counter] - right[counter];
 }
 
-
+//HAVE NOT DOUBLE CHECKED BELOW
 void String::reverse_cpy(char *dest, const char *src){
 	int src_len{strlen(src)};
 	for (int counter = 0; counter < src_len; ++counter){
@@ -241,10 +239,11 @@ const char* String::strchr(const char *str, char c){
 }
 
 const char* String::strstr(const char *haystack, const char *needle){
-	for (int counter = 0; haystack[counter] != '\0'; ++counter){
-		if (strcmp(&haystack[counter], needle) == 0){
-			return &haystack[counter];
-		}
+	int ned_size = strlen(needle);
+	int hay_size = strlen(haystack);
+	if (ned_size > hay_size) return nullptr;
+	for (int counter = 0; haystack[counter] != '\0' && counter < hay_size - ned_size + 1; ++counter){
+		if (strcmp(&haystack[counter], needle) == 0) return &haystack[counter];
 	} return nullptr;
 }
 
