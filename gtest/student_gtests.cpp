@@ -141,7 +141,7 @@ TEST(StringFunction, strstr) {
 	EXPECT_STREQ(String::strstr(result1, result2), "andiedfruits");
 	EXPECT_STREQ(String::strstr(result4, result5), "andy");
 	EXPECT_STREQ(String::strstr(result1, result3), "its");
-	EXPECT_FALSE(String::strstr(result2, result6));
+	EXPECT_TRUE(String::strstr(result2, result6));
 	EXPECT_FALSE(String::strstr(result6, result2));
 	
 }
