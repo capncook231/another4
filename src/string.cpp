@@ -7,7 +7,7 @@ String::String(const char *s){
 }
 
 
-String::String(const String &s){
+String::String(String s){
 	buf = strdup(s.buf);
 }
 /*
