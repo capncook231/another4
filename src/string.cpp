@@ -208,6 +208,7 @@ char* String::strncat(char *dest, const char *src, int n){
 
 int String::strcmp(const char *left, const char *right){
 	for (; *left != '\0' && *right != '\0' && *left == *right; ++left, ++right){}
+	//if (*left == '\0' || *right == '\0'){}
 	return *left - *right;
 }
 
