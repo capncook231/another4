@@ -6,11 +6,11 @@ String::String(const char *s){
 	buf = strdup(s);
 }
 
-/*
+
 String::String(const String &s){
 	buf = strdup(s.buf);
 }
-*/
+
 
 
 String::String(String &&s){
@@ -19,33 +19,25 @@ String::String(String &&s){
 
 void String::swap(String &s){
 	int s_len{strlen(s.buf)};
+	
 	String temp = String(s_len+1);
-	temp.buf = strdup(s.buf);
-	delete[] s.buf;
-	//s.buf = nullptr;
-
-	s.buf = strdup(buf);
-	delete[] buf;
-	//buf = nullptr;
-
-	buf = strdup(temp.buf);
-	delete[] temp.buf;
-	//temp.buf = nullptr;
+	
+	temp.buf = s.buf;
+	s.buf = buf;
+	buf = temp.buf;
 }
-/*
+
+//COPY ASSIGNMENT
 String& String::operator=(String s){
-	delete[] buf;
-	buf = strdup(s.buf);
+	swap(s.buf);
+	delete[] s.buf;
 	return *this;
 }
-*/
 
+//MOVE ASSIGNMENT
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
-
-	delete[] buf;
-	buf = s.buf;
-	s.buf = nullptr;
+	swap(s);
 	return *this;
 }
 
