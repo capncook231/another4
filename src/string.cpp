@@ -127,13 +127,12 @@ String& String::operator+=(const String& s){
 
 
 void String::print(std::ostream &out) const{
-	String temp = String(buf);
-	out<<temp;
+	out << buf;
 }
 
 void String::read(std::istream &in){
-	String temp = String(1024);
-	in >> temp;
+	buf = new char [1024];
+	in >> buf;
 }
 
 String::~String(){
