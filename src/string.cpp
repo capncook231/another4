@@ -15,15 +15,7 @@ String::String(String &&s)
 	: buf(s.buf) {s.buf = nullptr;}
 
 void String::swap(String &s){
-	int s_len{strlen(s.buf)};
-	
-	String temp = String(s_len+1);
-	
-	temp.buf = s.buf;
-	s.buf = buf;
-	buf = temp.buf;
-	temp.buf = nullptr;
-	//delete[] temp.buf;
+	std::swap(buf, s.buf);
 }
 
 //COPY ASSIGNMENT
@@ -40,7 +32,6 @@ String& String::operator=(const String &s){
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
 	swap(s);
-	delete[] s;
 	return *this;
 }
 
