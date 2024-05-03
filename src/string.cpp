@@ -22,6 +22,7 @@ void String::swap(String &s){
 	temp.buf = s.buf;
 	s.buf = buf;
 	buf = temp.buf;
+	temp.buf = nullptr;
 	//delete[] temp.buf;
 }
 
