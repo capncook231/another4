@@ -123,7 +123,7 @@ String& String::operator+=(const String& s){
 	String sup = String(strlen(buf) + strlen(s.buf) + 1);
 	sup.buf = strcpy(sup.buf, buf);
 	sup.buf = strcat(sup.buf, s.buf);
-	buf = strcpy(buf, sup.buf)
+	buf = strcpy(buf, sup.buf);
 	delete[] sup.buf;
 	return *this;
 }
