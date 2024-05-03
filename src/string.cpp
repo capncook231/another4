@@ -209,16 +209,16 @@ char* String::strncat(char *dest, const char *src, int n){
 
 int String::strcmp(const char *left, const char *right){
 	int counter = 0;
-	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter]; ++counter){}
-	return left[counter] - right[counter] - 0;
+	int src_len = strlen(right);
+	for (; counter < src_len && left[counter] == right[counter]; ++counter){}
+	return left[counter] - right[counter];
 }
 
 int String::strncmp(const char *left, const char *right, int n){
 	int counter = 0;
+	int src_len = strlen(right);
 	if (n == 0) return 0;
-	for (; left[counter] != '\0' && right[counter] != '\0' && counter < n; ++counter){
-		if(left[counter] != right[counter]) return left[counter] - right[counter];
-	}
+	for (; counter<src_len && counter < n && left[counter] == right[counter]; ++counter){}
 	if (counter == n) return 0; else return left[counter] - right[counter] - 0;
 }
 
