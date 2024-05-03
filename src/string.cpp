@@ -31,7 +31,9 @@ String& String::operator=(const String &s){
 //MOVE ASSIGNMENT
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
+	delete[] buf;
 	swap(s);
+	s.buf = nullptr;
 	return *this;
 }
 
