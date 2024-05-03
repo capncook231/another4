@@ -25,7 +25,7 @@ void String::swap(String &s){
 }
 
 //COPY ASSIGNMENT
-String& String::operator=(String s){
+String& String::operator=(const String s){
 	swap(s);
 	delete[] s.buf;
 	return *this;
