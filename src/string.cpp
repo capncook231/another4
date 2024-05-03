@@ -19,7 +19,7 @@ String::String(String &&s) {
 void String::swap(String &s){
 	std::swap(buf, s.buf);
 }
-
+/*
 //COPY ASSIGNMENT
 String& String::operator=(const String &s){
 	int s_len = strlen(s.buf);
@@ -29,7 +29,7 @@ String& String::operator=(const String &s){
 	buf = strcpy(buf, s.buf);
 	return *this;
 }
-
+*/
 //MOVE ASSIGNMENT
 String& String::operator=(String &&s){
 	if(&s == this) return *this;
