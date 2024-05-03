@@ -247,7 +247,7 @@ String::String(int length){
 	buf = {new char [length] {} };
 }
 
-std::ostream &operator<<(std::ostream &out, String s){
+std::ostream &operator<<(std::ostream &out, String &s){
 	s.print(out);
 	return out;
 }
