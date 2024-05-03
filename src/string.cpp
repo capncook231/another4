@@ -67,10 +67,9 @@ int String::size() const{
 }
 
 String String::reverse() const{
-	String temp;
-	
+	int buf_len = strlen(buf);
+	String temp = String(buf_len + 1);
 	reverse_cpy(temp.buf, buf);
-
 	return temp;
 }
 
@@ -80,37 +79,37 @@ int String::indexOf(char c) const{
 
 }
 
-int String::indexOf(String s) const{
+int String::indexOf(String& s) const{
 	const char* temp = strstr(buf, s.buf);
 	if (temp != nullptr) return temp - buf; else throw("Out of bounds!");
 
 }
 
-bool String::operator==(String s) const{
+bool String::operator==(String& s) const{
 	if(strcmp(buf, s.buf) == 0) return true; else return false;	
 }
 
-bool String::operator!=(String s) const{
+bool String::operator!=(String& s) const{
 	if(strcmp(buf, s.buf) != 0) return true; else return false;
 }
 
-bool String::operator>(String s) const{
+bool String::operator>(String& s) const{
 	if(strcmp(buf, s.buf) > 0) return true; else return false;
 }
 
-bool String::operator<(String s) const{
+bool String::operator<(String& s) const{
 	if(strcmp(buf, s.buf) < 0) return true; else return false;
 }
 
-bool String::operator<=(String s) const{
+bool String::operator<=(String& s) const{
 	if(strcmp(buf, s.buf) <= 0) return true; else return false;
 }
 
-bool String::operator>=(String s) const{
+bool String::operator>=(String& s) const{
 	if(strcmp(buf, s.buf) >= 0) return true; else return false;
 }
 
-String String::operator+(String s) const{
+String String::operator+(String& s) const{
 	char * sup = new char[strlen(buf) + strlen(s.buf) + 1];
 	strcpy(sup, buf);
 	strcat(sup, s.buf);
@@ -118,7 +117,7 @@ String String::operator+(String s) const{
 
 }
 
-String& String::operator+=(String s){
+String& String::operator+=(String& s){
 	char *sup = new char[strlen(buf) + strlen(s.buf) + 1];
 	strcpy(sup, buf);
 	buf = strcat(sup, s.buf);
