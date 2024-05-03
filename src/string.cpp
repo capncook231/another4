@@ -1,17 +1,21 @@
 #include "string.hpp"
 #include <utility>
+#include <iostream>
 
 String::String(const char *s){
 	buf = strdup(s);
 }
 
+/*
 String::String(const String &s){
 	buf = strdup(s.buf);
 }
+*/
 
 
-
-//String::String(String &&s);
+String::String(String &&s){
+	: buf(s.buf) {s.buf = nullptr;}
+}
 
 void String::swap(String &s){
 	int s_len{strlen(s.buf)};
@@ -28,14 +32,22 @@ void String::swap(String &s){
 	delete[] temp.buf;
 	//temp.buf = nullptr;
 }
-
+/*
 String& String::operator=(String s){
 	delete[] buf;
 	buf = strdup(s.buf);
 	return *this;
 }
+*/
 
-//String String::&operator=(String &&s);
+String& String::operator=(String &&s){
+	if(&s == this) return *this;
+
+	delete[] buf;
+	buf = s.buf;
+	s.buf = nullptr;
+	return *this;
+}
 
 char& String::operator[](int index){
 	int lim = strlen(buf);
