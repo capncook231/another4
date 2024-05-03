@@ -152,16 +152,25 @@ TEST(StringFunction, strstr) {
 	char result4[20];
 	char result5[20];
 	char result6[20];
+	char result7[20];
+	char result8[20];
+	char result9[10];
 	String::strcpy(result1, "candiedfruits");
 	String::strcpy(result2, "and");
 	String::strcpy(result3, "it");
 	String::strcpy(result4, "randy");
 	String::strcpy(result5, "an");
 	String::strcpy(result6, "");
+	String::strcpy(result7, "fooo");
+	String::strcpy(result8, "o");
+	String::strcpy(result9, "ooop");
 	EXPECT_STREQ(String::strstr(result1, result2), "andiedfruits");
 	EXPECT_STREQ(String::strstr(result4, result5), "andy");
 	EXPECT_STREQ(String::strstr(result1, result3), "its");
 	EXPECT_TRUE(String::strstr(result2, result6));
 	EXPECT_FALSE(String::strstr(result6, result2));
-	
+	EXPECT_FALSE(String::strstr(result4, result7));
+	EXPECT_STREQ(String::strstr(result7, result8), "ooo");
+	EXPECT_STREQ(String::strstr(result9, result8), "ooop");
+	EXPECT_FALSE(String::strstr(result8 ,result9));
 }
