@@ -1,8 +1,6 @@
 #include <gtest/gtest.h>
 #include <string.h>
-
 #include <algorithm>
-
 #include "string.hpp"
 #include "alloc.hpp"
 
@@ -28,14 +26,14 @@ TEST(StringFunction, strdup) {
 }
 
 TEST(StringFunction, strncpy) {
-    char result[10];
+    	char result[10];
 	char bisque[8];
 	EXPECT_EQ(String::strncpy(result, "ferrari", 100), result);
 	EXPECT_STREQ(result, "ferrari");
 	EXPECT_EQ(String::strlen(result), 7);
 	EXPECT_EQ(String::strncpy(result, "ferrari", 4), result);
 	EXPECT_STREQ(result, "ferr");
-    EXPECT_EQ(String::strlen(result), 4);
+    	EXPECT_EQ(String::strlen(result), 4);
 	EXPECT_EQ(String::strncpy(bisque, "lobster", 200), bisque);
 	EXPECT_STREQ(bisque, "lobster");
 	EXPECT_EQ(String::strlen(bisque), 7);
@@ -44,13 +42,13 @@ TEST(StringFunction, strncpy) {
 TEST(StringFunction, strcat) {
     char result[40];
 	String::strcpy(result, "atomic");
-    EXPECT_EQ(String::strcat(result, "mushroom"), result);
+    	EXPECT_EQ(String::strcat(result, "mushroom"), result);
 	EXPECT_STREQ(result, "atomicmushroom");
 	EXPECT_EQ(String::strlen(result), 14);
 }
 
 TEST(StringFunction, strncat) {
-    char result1[30];
+    	char result1[30];
 	char result2[20];
 	char result3[10];
 	char result4[60];
@@ -59,7 +57,7 @@ TEST(StringFunction, strncat) {
 	strcpy(result3, "m");
 	strcpy(result4, "aybach");
 	EXPECT_EQ(String::strlen(result1), 5);
-    EXPECT_EQ(String::strncat(result1, result2, 4), result1);
+    	EXPECT_EQ(String::strncat(result1, result2, 4), result1);
 	EXPECT_STREQ(result1, "pedrorami");
 	EXPECT_EQ(String::strlen(result1), 9);
 	EXPECT_EQ(String::strncat(result3, result4, 6), result3);
@@ -67,7 +65,7 @@ TEST(StringFunction, strncat) {
 }
 
 TEST(StringFunction, strcmp) {
-    char result1[20];
+    	char result1[20];
 	char result2[20];
 	char result3[30];
 	char result4[4];
@@ -84,7 +82,7 @@ TEST(StringFunction, strcmp) {
 }
 
 TEST(StringFunction, strncmp) {
-    char result1[20];
+    	char result1[20];
 	char result2[20];
 	char result3[20];
 	char result4[20];
@@ -102,7 +100,7 @@ TEST(StringFunction, strncmp) {
 }
 
 TEST(StringFunction, reverse_cpy) {
-    char result1[20];
+    	char result1[20];
 	char result2[20];
 	char result3[40];
 	String::strcpy(result1, "fickle");
@@ -116,7 +114,7 @@ TEST(StringFunction, reverse_cpy) {
 }
 
 TEST(StringFunction, strchr) {
-    char result1[20];
+    	char result1[20];
 	char result2[20];
 	char result3[20];
 
@@ -128,7 +126,7 @@ TEST(StringFunction, strchr) {
 }
 
 TEST(StringFunction, strstr) {
-    char result1[20];
+    	char result1[20];
 	char result2[20];
 	char result3[20];
 	char result4[20];
