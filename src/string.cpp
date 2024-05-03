@@ -234,15 +234,12 @@ void String::reverse_cpy(char *dest, const char *src){
 const char* String::strchr(const char *str, char c){
 	int str_len{strlen(str)};
 	int counter{0};
-	for (; counter < str_len && str[counter] != c; ++counter) {}
+	for (; char[counter] != '\0' && str[counter] != c; ++counter) {}
 	if (str[counter] == c) return &str[counter]; else return nullptr;
 }
 
 const char* String::strstr(const char *haystack, const char *needle){
-	int hay_len{strlen(haystack)};
-	int ned_len{strlen(needle)};
-	int counter{0};
-	for (; counter < hay_len - ned_len + 1; ++counter){
+	for (int counter = 0; haystack[counter] != '\0'; ++counter){
 		if (strcmp(&haystack[counter], needle) == 0){
 			return &haystack[counter];
 		}
