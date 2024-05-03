@@ -21,10 +21,11 @@ void String::swap(String &s){
 //COPY ASSIGNMENT
 String& String::operator=(const String &s){
 	int s_len = strlen(s.buf);
+	if (&s = this) return *this;
+	delete[] buf;
 	buf = new char[s_len+1];
-	int counter = 0;
-	for(; s[counter] != '\0'; ++counter){buf[counter] = s[counter];}
-	buf[counter] = '\0';
+	swap(s);
+	
 	return *this;
 }
 
