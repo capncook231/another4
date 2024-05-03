@@ -22,7 +22,14 @@ TEST(StringFunction, strcpy) {
 }
 
 TEST(StringFunction, strdup) {
-    EXPECT_TRUE(false);
+	char result[20];
+	char gogo[20];
+	String::strcpy(result, "hello");
+	gogo = String::strdup(result);
+	EXPECT_EQ(String::strlen(gogo), 5);
+	EXPECT_STREQ(gogo, "hello");
+	EXPECT_STREQ(gogo, result);
+	
 }
 
 TEST(StringFunction, strncpy) {
