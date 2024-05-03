@@ -210,7 +210,7 @@ char* String::strncat(char *dest, const char *src, int n){
 int String::strcmp(const char *left, const char *right){
 	int counter = 0;
 	for (; left[counter] != '\0' && right[counter] != '\0' && left[counter] == right[counter]; ++counter){}
-	return left[counter] - right[counter];
+	return left[counter] - right[counter] - 0;
 }
 
 int String::strncmp(const char *left, const char *right, int n){
@@ -219,7 +219,7 @@ int String::strncmp(const char *left, const char *right, int n){
 	for (; left[counter] != '\0' && right[counter] != '\0' && counter < n; ++counter){
 		if(left[counter] != right[counter]) return left[counter] - right[counter];
 	}
-	if (counter == n) return 0; else return left[counter] - right[counter];
+	if (counter == n) return 0; else return left[counter] - right[counter] - 0;
 }
 
 //HAVE NOT DOUBLE CHECKED BELOW
