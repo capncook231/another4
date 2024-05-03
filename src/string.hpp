@@ -9,16 +9,16 @@ public:
     explicit String(const char *s = "");
 
     // construct this string as a copy of string s
-    String(const String &s);
+    explicit String(const String &s);
 
     // construct this string by moving from string s
-    String(String &&s);
+    explicit String(String &&s);
 
     // swap buf between this string and s using std::swap, explained later
     void swap(String &s);
 
     // assignment operator from one string, s, to this string
-    explicit String &operator=(String s);
+    String &operator=(String s);
 
     // assign to this string by moving from string s
     String &operator=(String &&s);
