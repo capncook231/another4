@@ -18,7 +18,7 @@ public:
     void swap(String &s);
 
     // assignment operator from one string, s, to this string
-    String &operator=(String &s);
+    String &operator=(String s);
 
     // assign to this string by moving from string s
     String &operator=(String &&s);
@@ -95,6 +95,6 @@ private:
     explicit String(int length);
 };
 
-std::ostream &operator<<(std::ostream &out, String s);
-std::istream &operator>>(std::istream &in, String &s);
+std::ostream &operator<<(std::ostream &out, String &s);
+std::istream &operator>>(std::istream &in, String &&s);
 #endif
