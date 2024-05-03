@@ -95,6 +95,6 @@ private:
     explicit String(int length);
 };
 
-std::ostream &operator<<(std::ostream &out, String &s);
-std::istream &operator>>(std::istream &in, String &&s);
+std::ostream &operator<<(std::ostream &out, String s);
+std::istream &operator>>(std::istream &in, String &s);
 #endif
